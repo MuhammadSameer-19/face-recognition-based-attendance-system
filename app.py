@@ -136,9 +136,9 @@ def listusers():
 
 
 ## Delete functionality
-@app.route('/deleteuser', methods=['GET'])
-def deleteuser():
-    duser = request.args.get('user')
+@app.route('/deleteuser/<string:user>', methods=['GET'])
+def deleteuser(user):
+    duser = user
     deletefolder('static/faces/'+duser)
 
     ## if all the face are deleted, delete the trained file...
